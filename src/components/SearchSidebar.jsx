@@ -2,6 +2,9 @@ import { useContext } from "react"
 import { MainContext } from "../context/MainContext"
 
 import CloseIcon from "@mui/icons-material/Close"
+import RightIcon from "@mui/icons-material/ChevronRight"
+
+import SearchInput from "./SearchInput"
 
 const SearchSidebar = () => {
   const { isOpen, setIsOpen } = useContext(MainContext)
@@ -17,6 +20,35 @@ const SearchSidebar = () => {
 
           <div className="cursor-pointer" onClick={() => setIsOpen(!isOpen)}>
             <CloseIcon />
+          </div>
+        </div>
+        <div>
+          <SearchInput />
+        </div>
+        <div className="mt-[58px] flex flex-col gap-4">
+          <div className="h-[64px] cursor-pointer border-[1px] border-contentWhite hover:border-opacity-100 border-opacity-0 flex px-[12px] items-center justify-between">
+            London
+            <div className="text-grey">
+              <RightIcon />
+            </div>
+          </div>
+          <div className="h-[64px] cursor-pointer border-[1px] border-contentWhite hover:border-opacity-100 border-opacity-0 flex px-[12px] items-center justify-between">
+            Barcelona
+            <div className="text-grey">
+              <RightIcon />
+            </div>
+          </div>
+          <div className="h-[64px] cursor-pointer border-[1px] border-contentWhite hover:border-opacity-100 border-opacity-0 flex px-[12px] items-center justify-between">
+            Long Beach
+            <div className="text-grey">
+              <RightIcon />
+            </div>
+          </div>
+          <div className="h-[64px] cursor-pointer border-[1px] border-contentWhite hover:border-opacity-100 border-opacity-0  flex px-[12px] items-center justify-between">
+            Anahiem
+            <div className=" text-grey">
+              <RightIcon />
+            </div>
           </div>
         </div>
       </div>

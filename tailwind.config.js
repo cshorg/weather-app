@@ -9,6 +9,7 @@ export default {
       purple: "#585676",
       grey: "#6E707A",
       yellow: "#FFEC65",
+      blue: "#3C47E9",
       white: "#ffffff",
       offWhite: "#A09FB1",
       contentWhite: "#E7E7EB"
