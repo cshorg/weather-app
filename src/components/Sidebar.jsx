@@ -4,16 +4,7 @@ import LocationOnIcon from "@mui/icons-material/LocationOn"
 import { MainContext } from "../context/MainContext"
 
 const Sidebar = () => {
-  const { data } = useContext(MainContext)
-
-  const formatDate = (dateString) => {
-    const options = { weekday: "short", day: "numeric", month: "short" }
-    const formattedDate = new Date(dateString).toLocaleDateString(
-      undefined,
-      options
-    )
-    return formattedDate
-  }
+  const { data, formatDate, weatherImage } = useContext(MainContext)
 
   return (
     <div className="fixed w-[460px] bg-secondary h-full overflow-hidden">
@@ -22,7 +13,7 @@ const Sidebar = () => {
       {data ? (
         <>
           <img
-            src="src/assets/Shower.png"
+            src={weatherImage(data.current.condition.code)}
             alt="Icon"
             className="absolute left-32 top-48"
           />

@@ -6,8 +6,6 @@ import { MainContextProvider } from "./context/MainContext.jsx"
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <MainContextProvider>
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
+    <App />
   </MainContextProvider>
 )
