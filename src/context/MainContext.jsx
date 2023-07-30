@@ -8,31 +8,27 @@ export const MainContextProvider = ({ children }) => {
   const [isOpen, setIsOpen] = useState(true)
   const [tempType, setTempType] = useState(false)
   const [data, setData] = useState()
+  const [input, setInput] = useState("")
 
   useEffect(() => {
     const fetchData = () => {
-      // Get the stored data and timestamp from localStorage
       const storedData = localStorage.getItem("weather-data")
       const storedTimestamp = localStorage.getItem("weather-time")
 
-      // Check if the data is stored and not expired (within the last 5 minutes)
       const isDataValid = storedData && Date.now() - storedTimestamp < 300000
 
       if (isDataValid) {
-        // If the stored data is valid, use it without making a new API call
-        console.log("gettig localstorage")
+        console.log("getting localstorage")
         setData(JSON.parse(storedData))
       } else {
-        // If the data is not valid or not stored, fetch fresh data from the API
         console.log("refetching")
         axios
           .get(
-            "http://api.weatherapi.com/v1/forecast.json?key=40baaac8c7d64cb195314536232907&q&q=Barcelona&days=5&aqi=yes&alerts=yes"
+            "http://api.weatherapi.com/v1/forecast.json?key=40baaac8c7d64cb195314536232907&q&q=London&days=5&aqi=yes&alerts=yes"
           )
           .then((response) => {
             setData(response.data)
 
-            // Store the fetched data and current timestamp in localStorage
             localStorage.setItem("weather-data", JSON.stringify(response.data))
             localStorage.setItem("weather-time", Date.now())
           })
@@ -46,7 +42,7 @@ export const MainContextProvider = ({ children }) => {
   }, [])
 
   useEffect(() => {
-    console.log(data) // This will log the data whenever it changes
+    console.log(data)
   }, [data])
 
   const formatDate = (dateString) => {
@@ -78,9 +74,36 @@ export const MainContextProvider = ({ children }) => {
     }
   }
 
+  const searchLocation = async (location) => {
+    await axios
+      .get(
+        `http://api.weatherapi.com/v1/forecast.json?key=40baaac8c7d64cb195314536232907&q&q=${location}&days=5&aqi=yes&alerts=yes`
+      )
+      .then((res) => {
+        setIsOpen(true)
+        setData(res.data)
+
+        localStorage.setItem("weather-data", JSON.stringify(res.data))
+        localStorage.setItem("weather-time", Date.now())
+      })
+      .catch((err) => console.log("cannot find location", err))
+  }
+
   return (
     <MainContext.Provider
-      value={{ isOpen, setIsOpen, data, formatDate, weatherImage }}
+      value={{
+        isOpen,
+        setIsOpen,
+        data,
+        setData,
+        input,
+        setInput,
+        tempType,
+        setTempType,
+        formatDate,
+        weatherImage,
+        searchLocation
+      }}
     >
       {children}
     </MainContext.Provider>

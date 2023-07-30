@@ -7,12 +7,12 @@ const Highlights = () => {
   const { data } = useContext(MainContext)
 
   return (
-    <div className="text-white px-[125px] mt-[72px] w-full">
+    <div className="mb-6 text-white px-[23px] lg:px-[125px] mt-[72px] w-full">
       {data ? (
         <>
           <div className="text-xl font-semibold">Today's Highlights</div>
 
-          <div className="grid grid-cols-2 gap-[48px] mt-[32px] text-contentWhite">
+          <div className="grid grid-col-1 lg:grid-cols-2 gap-[48px] mt-[32px] text-contentWhite">
             <div className=" bg-secondary w-[328px] h-[204px] flex flex-col items-center pt-[22px]">
               <div>Wind Status</div>
               <div className="flex items-center gap-1 pt-[12px]">

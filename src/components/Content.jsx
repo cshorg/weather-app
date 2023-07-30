@@ -4,7 +4,7 @@ import Highlights from "./Highlights"
 
 const Content = () => {
   return (
-    <div className="ml-[460px] fixed">
+    <div className="mt-[810px]  lg:mt-0 lg:ml-[460px] lg:fixed">
       <Temp />
       <Upcoming />
       <Highlights />

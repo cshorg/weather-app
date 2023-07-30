@@ -8,6 +8,7 @@ import SearchInput from "./SearchInput"
 
 const SearchSidebar = () => {
   const { isOpen, setIsOpen } = useContext(MainContext)
+
   return (
     <>
       <div
@@ -33,19 +34,19 @@ const SearchSidebar = () => {
             </div>
           </div>
           <div className="h-[64px] cursor-pointer border-[1px] border-contentWhite hover:border-opacity-100 border-opacity-0 flex px-[12px] items-center justify-between">
-            Barcelona
+            Tokyo
             <div className="text-grey">
               <RightIcon />
             </div>
           </div>
           <div className="h-[64px] cursor-pointer border-[1px] border-contentWhite hover:border-opacity-100 border-opacity-0 flex px-[12px] items-center justify-between">
-            Long Beach
+            New York
             <div className="text-grey">
               <RightIcon />
             </div>
           </div>
           <div className="h-[64px] cursor-pointer border-[1px] border-contentWhite hover:border-opacity-100 border-opacity-0  flex px-[12px] items-center justify-between">
-            Anahiem
+            Los Angeles
             <div className=" text-grey">
               <RightIcon />
             </div>
