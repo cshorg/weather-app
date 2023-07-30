@@ -1,6 +1,7 @@
 import { useContext } from "react"
 import SiderbarHeader from "./SidebarHeader"
 import LocationOnIcon from "@mui/icons-material/LocationOn"
+import { AiOutlineLoading3Quarters } from "react-icons/ai"
 import { MainContext } from "../context/MainContext"
 
 const Sidebar = () => {
@@ -44,7 +45,11 @@ const Sidebar = () => {
           </div>
         </>
       ) : (
-        <div>Loading...</div>
+        <div className="flex items-center justify-center mt-40 text-purple animate-spin">
+          <div className="w-[50px] h-[50px]">
+            <AiOutlineLoading3Quarters size={50} />
+          </div>
+        </div>
       )}
     </div>
   )

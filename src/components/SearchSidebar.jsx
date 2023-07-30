@@ -12,7 +12,7 @@ const SearchSidebar = () => {
   return (
     <>
       <div
-        className={`top-0 -left-[460px] w-[460px] bg-secondary p-10 pl-10 text-white fixed h-full z-10 transition ease-in-out duration-300 ${
+        className={`top-0 -left-[375px] w-[375px] lg:-left-[460px] lg:w-[460px] bg-secondary p-10 px-[12px] lg:px-10 text-white fixed h-full z-10 transition ease-in-out duration-300 ${
           isOpen ? "translate-x -left-100" : "translate-x-full "
         }`}
       >
