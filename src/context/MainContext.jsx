@@ -1,5 +1,7 @@
 import { createContext, useEffect, useState } from "react"
 
+import clearImg from "/Clear.png"
+
 import axios from "axios"
 
 export const MainContext = createContext()
@@ -24,7 +26,7 @@ export const MainContextProvider = ({ children }) => {
         console.log("refetching")
         axios
           .get(
-            "http://api.weatherapi.com/v1/forecast.json?key=40baaac8c7d64cb195314536232907&q&q=London&days=5&aqi=yes&alerts=yes"
+            "https://api.weatherapi.com/v1/forecast.json?key=40baaac8c7d64cb195314536232907&q&q=London&days=5&aqi=yes&alerts=yes"
           )
           .then((response) => {
             setData(response.data)
@@ -56,28 +58,28 @@ export const MainContextProvider = ({ children }) => {
 
   const weatherImage = (value) => {
     if (value === 1000) {
-      return "src/assets/Clear.png"
+      return "/Clear.png"
     } else if (value >= 1003 && value <= 1030) {
-      return "src/assets/LightCloud.png"
+      return "/LightCloud.png"
     } else if (value >= 1063 && value <= 1072) {
-      return "src/assets/LightRain.png"
+      return "/LightRain.png"
     } else if (value >= 1087 && value <= 1183) {
-      return "src/assets/Sleet.png"
+      return "/Sleet.png"
     } else if (value >= 1186 && value <= 1222) {
-      return "src/assets/HeavyRain.png"
+      return "/HeavyRain.png"
     } else if (value >= 1225 && value <= 1249) {
-      return "src/assets/Hail.png"
+      return "/Hail.png"
     } else if (value >= 1252 && value <= 1282) {
-      return "src/assets/Thunderstorm.png"
+      return "/Thunderstorm.png"
     } else {
-      return "src/assets/Clear.png"
+      return "/Clear.png"
     }
   }
 
   const searchLocation = async (location) => {
     await axios
       .get(
-        `http://api.weatherapi.com/v1/forecast.json?key=40baaac8c7d64cb195314536232907&q&q=${location}&days=5&aqi=yes&alerts=yes`
+        `https://api.weatherapi.com/v1/forecast.json?key=40baaac8c7d64cb195314536232907&q&q=${location}&days=5&aqi=yes&alerts=yes`
       )
       .then((res) => {
         setIsOpen(true)

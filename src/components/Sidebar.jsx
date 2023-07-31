@@ -19,7 +19,7 @@ const Sidebar = () => {
             className="absolute left-28 top-48 w-[150px] lg:left-32 lg:top-48"
           />
           <img
-            src="src/assets/Cloud-background.png"
+            src="/Cloud-background.png"
             alt="background"
             className="scale-150 opacity-5"
           />
