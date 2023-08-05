@@ -41,10 +41,6 @@ export const MainContextProvider = ({ children }) => {
     fetchData()
   }, [])
 
-  useEffect(() => {
-    console.log(data)
-  }, [data])
-
   const formatDate = (dateString) => {
     const options = { weekday: "short", day: "numeric", month: "short" }
     const formattedDate = new Date(dateString).toLocaleDateString(
@@ -80,7 +76,6 @@ export const MainContextProvider = ({ children }) => {
         `https://api.weatherapi.com/v1/forecast.json?key=40baaac8c7d64cb195314536232907&q&q=${input}&days=5&aqi=yes&alerts=yes`
       )
       .then((res) => {
-        console.log(input)
         setData(res.data)
         setIsOpen(true)
 
