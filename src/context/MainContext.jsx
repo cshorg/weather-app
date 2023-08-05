@@ -1,7 +1,5 @@
 import { createContext, useEffect, useState } from "react"
 
-import clearImg from "/Clear.png"
-
 import axios from "axios"
 
 export const MainContext = createContext()
@@ -76,14 +74,15 @@ export const MainContextProvider = ({ children }) => {
     }
   }
 
-  const searchLocation = async (location) => {
+  const searchLocation = async () => {
     await axios
       .get(
-        `https://api.weatherapi.com/v1/forecast.json?key=40baaac8c7d64cb195314536232907&q&q=${location}&days=5&aqi=yes&alerts=yes`
+        `https://api.weatherapi.com/v1/forecast.json?key=40baaac8c7d64cb195314536232907&q&q=${input}&days=5&aqi=yes&alerts=yes`
       )
       .then((res) => {
-        setIsOpen(true)
+        console.log(input)
         setData(res.data)
+        setIsOpen(true)
 
         localStorage.setItem("weather-data", JSON.stringify(res.data))
         localStorage.setItem("weather-time", Date.now())
